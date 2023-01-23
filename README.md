@@ -1,8 +1,18 @@
 # my_flutter_webview_js
 
-Flutter で webview と js のやり取りテスト。
+Flutter で [webview](https://pub.dev/packages/webview_flutter) を使った  Flutter のネイティブ と js のやり取りをするテストプログラム。
 
 JS と Flutter のメッセージ交換ができるまでを実装した。
+
+## Environment
+
+- Flutter
+
+  3.3.1
+
+- WebView
+
+  [webview_flutter](https://pub.dev/packages/webview_flutter) 4.0.2
 
 ## Demo
 
