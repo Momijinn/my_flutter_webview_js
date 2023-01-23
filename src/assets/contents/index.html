@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+  }
+
+  .container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+</style>
+
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <div class="title">送信メッセージ</div>
+
+      <div class="message">
+        <input type="text" name="send" id="send_input">
+        <button id="send_button">送信</button>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="title">受信メッセージ</div>
+      <div class="message">
+        <textarea name="recv_textarea" id="recv_textarea" cols="30" rows="10"></textarea>
+      </div>
+    </div>
+  </div>
+
+</body>
+  <script>
+    let sendInputElement;
+    let sendButtonElement;
+    let recvTextareaElement;
+
+    let sendInputId = 'send_input';
+    let sendButtonId = 'send_button';
+    let recvTextareaId = 'recv_textarea';
+
+    const sendButtonClickEvent = () => {
+      const message = sendInputElement.value;
+      console.log(`send message: ${message}`);
+
+      if(!window.flutterApp){
+        console.error("native error");
+        return;
+      }
+
+      window.flutterApp.postMessage(message);
+    }
+
+    const flutterMessage = (message) => {
+      console.log(`recv message: ${message}`);
+
+      // toString() しないとなぜか value に入らずにエラーになる
+      recvTextareaElement.value = message.toString();
+    }
+
+    window.onload = () => {
+      console.log('onload');
+
+      // elem
+      sendInputElement = document.querySelector(`#${sendInputId}`);
+      sendButtonElement = document.querySelector(`#${sendButtonId}`);
+      recvTextareaElement = document.querySelector(`#${recvTextareaId}`);
+
+      // register click event
+      sendButtonElement.onclick = sendButtonClickEvent;
+    }
+  </script>
+</html>
