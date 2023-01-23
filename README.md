@@ -1,2 +1,22 @@
 # my_flutter_webview_js
-flutterでwebviewとjsのやり取りテスト
+
+Flutter で webview と js のやり取りテスト。
+
+JS と Flutter のメッセージ交換ができるまでを実装した。
+
+## Demo
+
+- ScreenSShot
+
+  | ScreenShot                                                                                                                                      |
+  | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+  | ![スクリーンショット 2023-01-24 0 13 27](https://user-images.githubusercontent.com/13119897/214076882-0cf0409e-cb8e-48e3-9a2f-3a06415bdca4.jpg) |
+
+- Movie
+
+  https://user-images.githubusercontent.com/13119897/214077064-af538d42-9e1c-4bf1-9bd4-46c279c88624.mov
+
+  ```
+  00:06 js から Flutter の関数を呼び出してメッセージを送信
+  00:06 Flutter でメッセージを受け取り、受け取ったメッセージをJSへ返す
+  ```
